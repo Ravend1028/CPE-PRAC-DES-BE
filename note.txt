@@ -1,3 +1,36 @@
-** STUDY
+Tech I Used:
 
-- MVC / OOP
+** FRONTEND
+
+- React JS
+- Tailwind CSS
+- JSON-Server 
+- React Router
+- React Spinners
+- React Icons
+
+- React Circular Gauge // Should switch to Syncfusion/react circular gauge as the current gauging used as of now isnt maintained
+
+** BACKEND
+
+- Node JS
+- Express JS
+- MongoDB
+  // Credentials: 
+      ravendavidrd30
+      asjIgoDmGXY4ueUF
+
+// By March:
+- Field Validations in Readings: (Client Side /  Server Side)
+  Empty Field
+  NaN Values
+  Long Strings, White Spaces
+  XSS
+  etc.
+- WebSockets and Board Processing -- Connectivity (Logic / Networking Concept)
+- Edit Button in Records (Should be in Modal / In Progress)
+- Gauges Display (UI / To Read Docs)
+
+- Machine Learning and Backend Things (Soon)
+
+
