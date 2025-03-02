@@ -22,6 +22,7 @@ Tech I Used:
 - Mongoose
 - Express Async Handler 
 - Dotenv
+- Nodemon
 
 // By March:
 - Field Validations in Readings: (Client Side /  Server Side)
@@ -35,8 +36,5 @@ Tech I Used:
 - Gauges Display (UI / To Read Docs)
 
 - Machine Learning and Backend Things (Soon)
-
-
-// setup middleware -- error handler
 
 
