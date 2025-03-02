@@ -1,20 +1,19 @@
 import express from 'express';
+import dotenv from 'dotenv';
 import mongoose from 'mongoose';
+import authRoutes from './routes/authRoutes';
 
+dotenv.config();
+const port = process.env.PORT;
 const app = express();
-const port = process.env.PORT || 8000;
 
-// Middlewares
+// Req Body Parsers
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 
-// Routes
-app.get('/', (req, res) => {
-  res.send("Test");
-});
+// Auth Routes
+app.use('/api/users', authRoutes);
 
 app.listen(port, () => {
- console.log(`Server is running on port ${port}`);
+ console.log(`Server is running on port ${ port }`);
 });
-
-// Much better if i study how to connect to mongoose in better way rathen using the .then()
