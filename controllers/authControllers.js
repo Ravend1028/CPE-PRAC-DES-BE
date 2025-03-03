@@ -71,30 +71,30 @@ const logoutUser = asyncHandler(async (req, res) => {
 
 const viewUserProfile = asyncHandler(async (req, res) => {
   res.status(200).json({ 
-    _id: res.user.id,
-    name: res.user.name,
-    age: res.user.age,
-    email: res.user.email,
-    phone: res.user.phone,
-    gender: res.user.gender,
-    username: res.user.username,
+    _id: req.user.id,
+    name: req.user.name,
+    age: req.user.age,
+    email: req.user.email,
+    phone: req.user.phone,
+    gender: req.user.gender,
+    username: req.user.username,
     vitalStatistics: {
-      height: res.user.vitalStatistics.height,
-      weight: res.user.vitalStatistics.weight,
-      bodyTemperature: res.user.vitalStatistics.bodyTemperature,
-      pulseRate: res.user.vitalStatistics.pulseRate,
-      bloodPressure: res.user.vitalStatistics.bloodPressure,
-      respiratoryRate: res.user.vitalStatistics.respiratoryRate,
-      bloodOxygenLevel: res.user.vitalStatistics.bloodOxygenLevel,
-      BMI: res.user.vitalStatistics.BMI,
-      waistCircumference: res.user.vitalStatistics.waistCircumference,
+      height: req.user.vitalStatistics.height,
+      weight: req.user.vitalStatistics.weight,
+      bodyTemperature: req.user.vitalStatistics.bodyTemperature,
+      pulseRate: req.user.vitalStatistics.pulseRate,
+      bloodPressure: req.user.vitalStatistics.bloodPressure,
+      respiratoryRate: req.user.vitalStatistics.respiratoryRate,
+      bloodOxygenLevel: req.user.vitalStatistics.bloodOxygenLevel,
+      BMI: req.user.vitalStatistics.BMI,
+      waistCircumference: req.user.vitalStatistics.waistCircumference,
     }
    });
 });
 
 const editUserProfile = asyncHandler(async (req, res) => {
   const { name, age, email, phone, gender } = req.body;
-  const id = res.user._id;
+  const id = req.user._id;
 
   const user = await User.findById({ id });
 
