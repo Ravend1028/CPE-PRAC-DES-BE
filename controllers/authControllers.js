@@ -70,23 +70,55 @@ const logoutUser = asyncHandler(async (req, res) => {
 });
 
 const viewUserProfile = asyncHandler(async (req, res) => {
-  const user = {
+  res.status(200).json({ 
     _id: res.user.id,
     name: res.user.name,
     age: res.user.age,
     email: res.user.email,
     phone: res.user.phone,
     gender: res.user.gender,
-    username: res.user.username
-  };
-
-  // Add vital signs readings here
-
-  res.status(200).json({ user });
+    username: res.user.username,
+    vitalStatistics: {
+      height: res.user.vitalStatistics.height,
+      weight: res.user.vitalStatistics.weight,
+      bodyTemperature: res.user.vitalStatistics.bodyTemperature,
+      pulseRate: res.user.vitalStatistics.pulseRate,
+      bloodPressure: res.user.vitalStatistics.bloodPressure,
+      respiratoryRate: res.user.vitalStatistics.respiratoryRate,
+      bloodOxygenLevel: res.user.vitalStatistics.bloodOxygenLevel,
+      BMI: res.user.vitalStatistics.BMI,
+      waistCircumference: res.user.vitalStatistics.waistCircumference,
+    }
+   });
 });
 
 const editUserProfile = asyncHandler(async (req, res) => {
-  res.status(200).json({ message: "Update Route" });
+  const { name, age, email, phone, gender } = req.body;
+  const id = res.user._id;
+
+  const user = await User.findById({ id });
+
+  if (user) {
+    user.name = name || user.name;
+    user.age = age || user.age;
+    user.email = email || user.email;
+    user.phone = phone || user.phone;
+    user.gender = gender || user.gender;
+
+    const updatedUser = await user.save();
+
+    res.status(200).json({ 
+      _id: updatedUser._id ,
+      name: updatedUser.name,
+      age: updatedUser.age,
+      email: updatedUser.email,
+      phone: updatedUser.phone,
+      gender: updatedUser.gender
+    });
+  } else {
+    res.status(404);
+    throw new Error('User not found');
+  }
 });
 
 export { signupUser, loginUser, logoutUser, viewUserProfile, editUserProfile };

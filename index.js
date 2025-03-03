@@ -5,8 +5,6 @@ import { notFound, errorHandler } from './middlewares/errorHandler.js';
 import connectDB from './configs/db.js';
 import cookieParser from 'cookie-parser';
 
-// Include Cookie Parser Here Later
-
 dotenv.config();
 connectDB();
 const port = process.env.PORT;
