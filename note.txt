@@ -38,3 +38,11 @@ Tech I Used:
 - Machine Learning and Backend Things (Soon)
 
 
+- update user info connectivity
+- Forgot pass endpoint
+- user settings endpoint -- update username and pass
+- SSH Crash Course
+- NODE ENV .env
+- Deployment
+
+
