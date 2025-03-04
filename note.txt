@@ -9,8 +9,6 @@ Tech I Used:
 - React Spinners
 - React Icons
 
-- React Circular Gauge // Should switch to Syncfusion/react circular gauge as the current gauging used as of now isnt maintained
-
 ** BACKEND
 
 - Node JS

@@ -52,7 +52,17 @@ const loginUser = asyncHandler(async (req, res) => {
       email: user.email,
       phone: user.phone,
       gender: user.gender,
-      username: user.username
+      vitalStatistics: {
+        height: user.vitalStatistics.height,
+        weight: user.vitalStatistics.weight,
+        bodyTemperature: user.vitalStatistics.bodyTemperature,
+        pulseRate: user.vitalStatistics.pulseRate,
+        bloodPressure: user.vitalStatistics.bloodPressure,
+        respiratoryRate: user.vitalStatistics.respiratoryRate,
+        bloodOxygenLevel: user.vitalStatistics.bloodOxygenLevel,
+        BMI: user.vitalStatistics.BMI,
+        waistCircumference: user.vitalStatistics.waistCircumference,
+      }
     });
   } else {
     res.status(401);
@@ -121,4 +131,25 @@ const editUserProfile = asyncHandler(async (req, res) => {
   }
 });
 
-export { signupUser, loginUser, logoutUser, viewUserProfile, editUserProfile };
+const forgotPassword = asyncHandler(async (req, res) => {
+  const { username, password, retypePassword } = req.body;
+
+  const user = await User.findOne({ username });
+
+  if (password !== retypePassword) {
+    res.status(401);
+    throw new Error('Passwords do not match');
+  }
+
+  if (!user) {
+    res.status(401);
+    throw new Error('Username not exists');
+  } else {
+    user.password = password;
+    const updatedUser = await user.save();
+
+    res.status(200).json({ message: 'Password updated succesfully' });
+  }
+});
+
+export { signupUser, loginUser, logoutUser, viewUserProfile, editUserProfile, forgotPassword };

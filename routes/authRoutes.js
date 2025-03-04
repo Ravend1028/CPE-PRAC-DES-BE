@@ -1,5 +1,5 @@
 import express from 'express';
-import { signupUser, loginUser, logoutUser, viewUserProfile, editUserProfile } from '../controllers/authControllers.js';
+import { signupUser, loginUser, logoutUser, viewUserProfile, editUserProfile, forgotPassword } from '../controllers/authControllers.js';
 import { protect } from '../middlewares/authMiddleware.js';
 
 const router = express.Router();
@@ -15,5 +15,7 @@ router.post('/logout', logoutUser);
 
 // Endpoint for viewing and editing user profile
 router.route('/profile').get(protect, viewUserProfile).put(protect, editUserProfile);
+
+router.put('/forgotpass', forgotPassword);
 
 export default router;
