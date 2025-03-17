@@ -20,6 +20,7 @@ app.use(cookieParser());
 // Auth Routes
 app.use('/api/users', router);
 
+// For Production Setup
 if (process.env.NODE_ENV === 'production') {
   const __dirname = path.resolve(); // returns current working directory
   app.use(express.static(path.join(__dirname, 'frontend/dist')));
