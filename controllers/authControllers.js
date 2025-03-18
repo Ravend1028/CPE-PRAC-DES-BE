@@ -79,6 +79,7 @@ const logoutUser = asyncHandler(async (req, res) => {
   res.status(200).json({ message: 'User Logged Out' });
 });
 
+// Unused
 const viewUserProfile = asyncHandler(async (req, res) => {
   res.status(200).json({ 
     _id: req.user.id,
