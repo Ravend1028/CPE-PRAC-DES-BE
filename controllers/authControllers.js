@@ -79,7 +79,7 @@ const logoutUser = asyncHandler(async (req, res) => {
   res.status(200).json({ message: 'User Logged Out' });
 });
 
-// Unused
+// Unused Controller
 const viewUserProfile = asyncHandler(async (req, res) => {
   res.status(200).json({ 
     _id: req.user.id,
@@ -107,7 +107,7 @@ const editUserProfile = asyncHandler(async (req, res) => {
   const { name, age, email, phone, gender } = req.body;
   const id = req.user._id;
 
-  const user = await User.findById({ id });
+  const user = await User.findById(id);
 
   if (user) {
     user.name = name || user.name;
@@ -124,7 +124,18 @@ const editUserProfile = asyncHandler(async (req, res) => {
       age: updatedUser.age,
       email: updatedUser.email,
       phone: updatedUser.phone,
-      gender: updatedUser.gender
+      gender: updatedUser.gender,
+      vitalStatistics: {
+        height: updatedUser.vitalStatistics.height,
+        weight: updatedUser.vitalStatistics.weight,
+        bodyTemperature: updatedUser.vitalStatistics.bodyTemperature,
+        pulseRate: updatedUser.vitalStatistics.pulseRate,
+        bloodPressure: updatedUser.vitalStatistics.bloodPressure,
+        respiratoryRate: updatedUser.vitalStatistics.respiratoryRate,
+        bloodOxygenLevel: updatedUser.vitalStatistics.bloodOxygenLevel,
+        BMI: updatedUser.vitalStatistics.BMI,
+        waistCircumference: updatedUser.vitalStatistics.waistCircumference,
+      }
     });
   } else {
     res.status(404);
