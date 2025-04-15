@@ -164,4 +164,21 @@ const forgotPassword = asyncHandler(async (req, res) => {
   }
 });
 
-export { signupUser, loginUser, logoutUser, viewUserProfile, editUserProfile, forgotPassword };
+const updateVitals = asyncHandler(async (req, res) => {
+  const { _id, vitalStatistics } = req.body;
+
+  const user = await User.findById(_id);
+
+  if (user) {
+    user.vitalStatistics = vitalStatistics || user.vitalStatistics;
+    await user.save();
+    res.status(200).json({
+      message: 'Vital sign readings have been saved succesfully'
+    });
+  } else {
+    res.status(404);
+    throw new Error('User not found');
+  }
+});
+
+export { signupUser, loginUser, logoutUser, viewUserProfile, editUserProfile, forgotPassword, updateVitals };

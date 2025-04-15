@@ -63,7 +63,7 @@ const userSchema = mongoose.Schema({
     },
 
     bloodPressure: {
-      type: Number,
+      type: String,
       default: 0,
       required: true
     },
