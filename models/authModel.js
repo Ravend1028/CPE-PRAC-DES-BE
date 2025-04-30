@@ -50,20 +50,14 @@ const userSchema = mongoose.Schema({
       required: true
     },
 
+    BMI: {
+      type: Number,
+      default: 0,
+      required: true
+    },
+
     bodyTemperature: {
       type: Number,
-      default: 0,
-      required: true
-    },
-
-    pulseRate: {
-      type: Number,
-      default: 0,
-      required: true
-    },
-
-    bloodPressure: {
-      type: String,
       default: 0,
       required: true
     },
@@ -80,11 +74,18 @@ const userSchema = mongoose.Schema({
       required: true
     },
 
-    BMI: {
+    pulseRate: {
       type: Number,
       default: 0,
       required: true
-    }
+    },
+
+    bloodPressure: {
+      type: String,
+      default: 0,
+      required: true
+    },
+    
   }
 }, {
   timestamps: true
