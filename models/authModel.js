@@ -85,7 +85,24 @@ const userSchema = mongoose.Schema({
       default: 0,
       required: true
     },
-    
+
+    waist: {
+      type: Number,
+      default: 0,
+      required: true
+    },
+
+    hips: {
+      type: Number,
+      default: 0,
+      required: true
+    },
+
+    smokerOrNo: {
+      type: Boolean,
+      default: 0,
+      required: true
+    },
   }
 }, {
   timestamps: true

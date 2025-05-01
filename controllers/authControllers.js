@@ -61,7 +61,9 @@ const loginUser = asyncHandler(async (req, res) => {
         respiratoryRate: user.vitalStatistics.respiratoryRate,
         bloodOxygenLevel: user.vitalStatistics.bloodOxygenLevel,
         BMI: user.vitalStatistics.BMI,
-        waistCircumference: user.vitalStatistics.waistCircumference,
+        waist: user.vitalStatistics.waist,
+        hips: user.vitalStatistics.hips,
+        vice: user.vitalStatistics.smokerOrNo
       }
     });
   } else {
@@ -98,7 +100,9 @@ const viewUserProfile = asyncHandler(async (req, res) => {
       respiratoryRate: req.user.vitalStatistics.respiratoryRate,
       bloodOxygenLevel: req.user.vitalStatistics.bloodOxygenLevel,
       BMI: req.user.vitalStatistics.BMI,
-      waistCircumference: req.user.vitalStatistics.waistCircumference,
+      waist: user.vitalStatistics.waist,
+      hips: user.vitalStatistics.hips,
+      vice: user.vitalStatistics.smokerOrNo
     }
    });
 });
@@ -134,7 +138,9 @@ const editUserProfile = asyncHandler(async (req, res) => {
         respiratoryRate: updatedUser.vitalStatistics.respiratoryRate,
         bloodOxygenLevel: updatedUser.vitalStatistics.bloodOxygenLevel,
         BMI: updatedUser.vitalStatistics.BMI,
-        waistCircumference: updatedUser.vitalStatistics.waistCircumference,
+        waist: user.vitalStatistics.waist,
+        hips: user.vitalStatistics.hips,
+        vice: user.vitalStatistics.smokerOrNo
       }
     });
   } else {
