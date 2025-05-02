@@ -63,7 +63,7 @@ const loginUser = asyncHandler(async (req, res) => {
         BMI: user.vitalStatistics.BMI,
         waist: user.vitalStatistics.waist,
         hips: user.vitalStatistics.hips,
-        vice: user.vitalStatistics.smokerOrNo
+        smokerOrNo: user.vitalStatistics.smokerOrNo
       }
     });
   } else {
